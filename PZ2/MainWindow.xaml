@@ -1,0 +1,24 @@
+﻿<Window x:Class="PZ2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PZ2"
+        mc:Ignorable="d"
+        Title="PZ2" Height="600" Width="900" WindowState="Maximized">
+    <Grid>
+        <DockPanel>
+            <DockPanel DockPanel.Dock="Top">
+                <Button x:Name="btnLoad" DockPanel.Dock="Left" Content="Load Grid" Width="200" Margin="10" Click="btnLoad_Click"/>
+                <Slider x:Name="slider" DockPanel.Dock="Right" VerticalAlignment="Center" Minimum="1" Maximum="10" Value="1" IsEnabled="False"/>
+            </DockPanel>
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Canvas x:Name="canvas" Height="700" Width="1000" Background="White" MouseLeftButtonDown="canvas_MouseLeftButtonDown" MouseRightButtonDown="canvas_MouseRightButtonDown">
+                    <Canvas.LayoutTransform>
+                        <ScaleTransform ScaleX="{Binding ElementName=slider, Path=Value}" ScaleY="{Binding ElementName=slider, Path=Value}"/>
+                    </Canvas.LayoutTransform>
+                </Canvas>
+            </ScrollViewer>
+        </DockPanel>
+    </Grid>
+</Window>
